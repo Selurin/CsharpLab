@@ -15,6 +15,10 @@ class Program
             Console.WriteLine("2.1 - Модуль числа");
             Console.WriteLine("2.3 - Делится ли на 3, на 5 или на 15 (при делении на 15 = false)");
             Console.WriteLine("2.5 - Тройной максимум");
+            Console.WriteLine("2.7 - Двойная сумма");
+            Console.WriteLine("2.9 - Вывод дней недели");
+            //Console.WriteLine("");
+            //Console.WriteLine("");
             //Console.WriteLine("");
             //Console.WriteLine("");
             Console.WriteLine("0 - Выход");
@@ -161,7 +165,7 @@ class Program
 
                 if (int.TryParse(x, out int parseX) && int.TryParse(y, out int parseY) && int.TryParse(z, out int parseZ))
                 {
-                    int result = TaskSolver.max3(parseX,parseY,parseZ);
+                    int result = TaskSolver.max3(parseX, parseY, parseZ);
                     Console.WriteLine($"Результат: {result}");
                 }
 
@@ -171,7 +175,43 @@ class Program
                 }
             }
 
-            else if (choice =="0")
+            else if (choice == "2.7" || choice == "27")
+            {
+                Console.Write("Введите x: ");
+                string? x = Console.ReadLine();
+
+                Console.Write("Введите y: ");
+                string? y = Console.ReadLine();
+
+                if (int.TryParse(x, out int parseX) && int.TryParse(y, out int parseY))
+                {
+                    int result = TaskSolver.sum2(parseX, parseY);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "2.9" || choice == "29")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    string result = TaskSolver.day(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "0")
             {
                 Console.WriteLine("До свидания!");
             }
