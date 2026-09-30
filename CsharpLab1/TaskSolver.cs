@@ -23,4 +23,37 @@ public class TaskSolver
             double cleanResult = Math.Abs(Math.Round(dirtyResult, precision)); //округляем по кол-ву длины хвоста изначального числа и приводим к модулю (остаток всегда положительный)
             return cleanResult; 
     }
+
+    public static int charToNum(char x)
+    {
+        return x - '0';
+    }
+
+    public static bool is2Digits(int x)
+    {
+        string strX = x.ToString();
+        if (strX.Length==2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static bool isInRange(int a, int b, int num)
+    {
+        if ((a <= num && num <= b) || (b <= num && num <= a))
+        {
+            return true;
+        }
+        else 
+            { return false;
+        }
+
+
+    }
+
+
 }

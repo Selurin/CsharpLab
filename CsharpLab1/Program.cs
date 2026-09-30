@@ -3,17 +3,22 @@ class Program
 {
     static void Main(string[] args)
     {
-        string? choise = "";
-        while (choise != "0")
+        string? choice = "";
+        while (choice != "0")
         {
             Console.WriteLine("\nКакую задачу решить?");
             Console.WriteLine("1.1 - Дробная часть числа");
+            Console.WriteLine("1.3 - Превратить букву в число");
+            Console.WriteLine("1.5 - Двузначное ли число");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("0 - Выход");
             Console.Write("Введите номер задачи: ");
 
-            choise = Console.ReadLine();
+            choice = Console.ReadLine();
 
-            if (choise == "1.1")
+            if (choice == "1.1")
             {
                 Console.Write("Введите x: ");
                 string? userWrite = Console.ReadLine();
@@ -29,7 +34,46 @@ class Program
                 }
             }
 
-            else if (choise =="0")
+            if (choice == "1.3")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (char.TryParse(userWrite, out char parseUserWrite))
+                {
+                    int result = TaskSolver.charToNum(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            if (choice == "1.5")
+            {
+                Console.Write("Введите a: ");
+                string? a = Console.ReadLine();
+
+                Console.Write("Введите b: ");
+                string? b = Console.ReadLine();
+
+                Console.Write("Введите num: ");
+                string? num = Console.ReadLine();
+
+                if (int.TryParse(a, out int parseA) && int.TryParse(b, out int parseB) && int.TryParse(num, out int parseNum))
+                {
+                    bool result = TaskSolver.isInRange(parseA, parseB, parseNum);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice =="0")
             {
                 Console.WriteLine("До свидания!");
             }
