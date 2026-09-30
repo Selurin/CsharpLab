@@ -112,6 +112,22 @@ class Program
                 }
             }
 
+            else if (choice == "2.1" || choice == "21")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    int result = TaskSolver.abs(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
             else if (choice =="0")
             {
                 Console.WriteLine("До свидания!");

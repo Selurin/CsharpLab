@@ -67,4 +67,9 @@ public class TaskSolver
         }
     }
 
+    public static int abs(int x)
+    {
+        return Math.Abs(x);
+    }
+
 }
