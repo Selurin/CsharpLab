@@ -22,8 +22,8 @@ class Program
             Console.WriteLine("3.5 - Длина числа");
             Console.WriteLine("3.7 - Квадрат");
             Console.WriteLine("3.9 - Правый треугольник");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
+            Console.WriteLine("4.1 - Поиск первого значения");
+            Console.WriteLine("4.3 - Поиск максимального");
             //Console.WriteLine("");
             Console.WriteLine("0 - Выход");
             Console.Write("Введите номер задачи через точку или без: ");
@@ -294,6 +294,60 @@ class Program
                     Console.WriteLine("Неверное значение!");
                 }
             }
+
+            else if (choice == "4.1" || choice == "41")
+            {
+                Console.Write("Введите массив чисел через пробел: ");
+                string? line = Console.ReadLine();
+
+                Console.Write("Введите число для поиска: ");
+                string? numStr = Console.ReadLine();
+
+                // проверяем, что второе число точно введено
+                if (line != null && numStr != null && int.TryParse(numStr, out int searchValue))
+                {
+                    try
+                    {
+                        // .Split(' ') разбивает строку по пробелам
+                        // Select(int.Parse) превращает каждую часть в число
+                        // .ToArray() собирает всё в массив
+                        int[] arr = line.Split(' ').Select(int.Parse).ToArray();
+
+                        int result = TaskSolver.findFirst(arr, searchValue);
+
+                        Console.WriteLine($"Индекс первого вхождения: {result}");
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Ошибка! Вводите только целые числа через пробел.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "4.3" || choice == "43")
+            {
+                Console.Write("Введите числа через пробел: ");
+                string? line = Console.ReadLine();
+
+                try
+                {
+                    int[] arr = line!.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                                     .Select(int.Parse)
+                                     .ToArray();
+
+                    int result = TaskSolver.maxAbs(arr);
+                    Console.WriteLine($"Результат: {result}");
+                }
+                catch
+                {
+                    Console.WriteLine("Ошибка! Введите корректные числа через пробел.");
+                }
+            }
+
 
             else if (choice == "0")
             {

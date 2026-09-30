@@ -191,4 +191,28 @@ public class TaskSolver
             Console.WriteLine();               // переход на новую строку
         }
     }
+
+    public static int findFirst(int[] arr, int x)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == x)
+                return i;       // нашли первое вхождение — сразу возвращаем индекс
+        }
+
+        return -1;              // прошли весь массив, ничего не нашли
+    }
+
+    public static int maxAbs(int[] arr)
+    {
+        int max = arr[0]; // берём первый элемент как текущий максимум
+
+        for (int i = 1; i < arr.Length; i++)
+        {
+            if (Math.Abs(arr[i]) > Math.Abs(max))
+                max = arr[i];
+        }
+
+        return max;
+    }
 }
