@@ -17,12 +17,12 @@ class Program
             {
                 Console.Write("Введите x: ");
                 string? userWrite = Console.ReadLine();
-                bool isSuccess = double.TryParse(userWrite, out double parseUserWrite);
-                if (isSuccess)
+                if (double.TryParse(userWrite, out double parseUserWrite))
                 {
-                    double result = TaskSolver.fraction(parseUserWrite); //Вызываем метод из другого файла.класса
+                    double result = TaskSolver.fraction(parseUserWrite);
                     Console.WriteLine($"Результат: {result}");
                 }
+
                 else
                 {
                     Console.WriteLine("Неверное значение!");
