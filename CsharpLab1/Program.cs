@@ -14,7 +14,7 @@ class Program
             Console.WriteLine("1.9 - Равны ли все 3 числа");
             Console.WriteLine("2.1 - Модуль числа");
             Console.WriteLine("2.3 - Делится ли на 3, на 5 или на 15 (при делении на 15 = false)");
-            //Console.WriteLine("");
+            Console.WriteLine("2.5 - Тройной максимум");
             //Console.WriteLine("");
             //Console.WriteLine("");
             Console.WriteLine("0 - Выход");
@@ -139,6 +139,29 @@ class Program
                 if (int.TryParse(userWrite, out int parseUserWrite))
                 {
                     bool result = TaskSolver.is35(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "2.5" || choice == "25")
+            {
+                Console.Write("Введите x: ");
+                string? x = Console.ReadLine();
+
+                Console.Write("Введите y: ");
+                string? y = Console.ReadLine();
+
+                Console.Write("Введите z: ");
+                string? z = Console.ReadLine();
+
+                if (int.TryParse(x, out int parseX) && int.TryParse(y, out int parseY) && int.TryParse(z, out int parseZ))
+                {
+                    int result = TaskSolver.max3(parseX,parseY,parseZ);
                     Console.WriteLine($"Результат: {result}");
                 }
 
