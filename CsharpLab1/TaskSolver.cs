@@ -72,4 +72,16 @@ public class TaskSolver
         return Math.Abs(x);
     }
 
+    public static bool is35(int x)
+    {
+        if ((x%3==0 || x%5==0) && x%15!=0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

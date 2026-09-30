@@ -12,7 +12,11 @@ class Program
             Console.WriteLine("1.5 - Двузначное ли число");
             Console.WriteLine("1.7 - Входит ли число в диапазон");
             Console.WriteLine("1.9 - Равны ли все 3 числа");
-            Console.WriteLine();
+            Console.WriteLine("2.1 - Модуль числа");
+            Console.WriteLine("2.3 - Делится ли на 3, на 5 или на 15 (при делении на 15 = false)");
+            //Console.WriteLine("");
+            //Console.WriteLine("");
+            //Console.WriteLine("");
             Console.WriteLine("0 - Выход");
             Console.Write("Введите номер задачи через точку или без: ");
 
@@ -119,6 +123,22 @@ class Program
                 if (int.TryParse(userWrite, out int parseUserWrite))
                 {
                     int result = TaskSolver.abs(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "2.3" || choice == "23")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    bool result = TaskSolver.is35(parseUserWrite);
                     Console.WriteLine($"Результат: {result}");
                 }
 
