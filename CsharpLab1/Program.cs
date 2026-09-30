@@ -17,8 +17,8 @@ class Program
             Console.WriteLine("2.5 - Тройной максимум");
             Console.WriteLine("2.7 - Двойная сумма");
             Console.WriteLine("2.9 - Вывод дней недели");
-            //Console.WriteLine("");
-            //Console.WriteLine("");
+            Console.WriteLine("3.1 - Числа подряд");
+            Console.WriteLine("3.3 - Четные числа");
             //Console.WriteLine("");
             //Console.WriteLine("");
             Console.WriteLine("0 - Выход");
@@ -202,6 +202,38 @@ class Program
                 if (int.TryParse(userWrite, out int parseUserWrite))
                 {
                     string result = TaskSolver.day(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "3.1" || choice == "31")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    string result = TaskSolver.listNums(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "3.3" || choice == "33")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    string result = TaskSolver.pow(parseUserWrite);
                     Console.WriteLine($"Результат: {result}");
                 }
 

@@ -123,5 +123,24 @@ public class TaskSolver
         }
     }
 
+    public static String listNums(int x)
+    {
+        string s = "";
+        for (int i = 0; i <= x; i++)
+        {
+            s = s + i + " ";
+        }
+        return s;
+    }
+
+    public static String pow(int x)
+    {
+        string s = "";
+        for (int i = 0; i <= x; i+=2)
+        {
+            s = s + i + " ";
+        }
+        return s;
+    }
 
 }
