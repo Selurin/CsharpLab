@@ -24,7 +24,9 @@ class Program
             Console.WriteLine("3.9 - Правый треугольник");
             Console.WriteLine("4.1 - Поиск первого значения");
             Console.WriteLine("4.3 - Поиск максимального");
-            //Console.WriteLine("");
+            Console.WriteLine("4.5 - Добавление массива в массив");
+            Console.WriteLine("4.7 - Возвратный реверс");
+            Console.WriteLine("4.9 - Все вхождения");
             Console.WriteLine("0 - Выход");
             Console.Write("Введите номер задачи через точку или без: ");
 
@@ -237,7 +239,7 @@ class Program
                 string? userWrite = Console.ReadLine();
                 if (int.TryParse(userWrite, out int parseUserWrite))
                 {
-                    string result = TaskSolver.pow(parseUserWrite);
+                    string result = TaskSolver.chet(parseUserWrite);
                     Console.WriteLine($"Результат: {result}");
                 }
 
@@ -348,6 +350,79 @@ class Program
                 }
             }
 
+            else if (choice == "4.5" || choice == "45")
+            {
+                Console.Write("Введите основной массив через пробел: ");
+                string? lineArr = Console.ReadLine();
+
+                Console.Write("Вставляемый массив через пробел: ");
+                string? lineIns = Console.ReadLine();
+
+                Console.Write("Позиция для вставки (число): ");
+                string? linePos = Console.ReadLine();
+
+                try
+                {
+                    // Превращаем строки в массивы и число
+                    int[] arr = lineArr!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                    int[] ins = lineIns!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                    int pos = int.Parse(linePos!);
+
+                    // Вызываем метод
+                    int[] result = TaskSolver.add(arr, ins, pos);
+
+                    // Выводим результат красиво
+                    Console.WriteLine("Результат: [" + string.Join(", ", result) + "]");
+                }
+                catch
+                {
+                    Console.WriteLine("Ошибка ввода! Проверьте числа и позицию.");
+                }
+            }
+
+            else if (choice == "4.7" || choice == "47")
+            {
+                Console.Write("Введите массив через пробел: ");
+                string? line = Console.ReadLine();
+
+                try
+                {
+                    int[] arr = line!.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                                     .Select(int.Parse).ToArray();
+
+                    int[] result = TaskSolver.reverseBack(arr);
+
+                    Console.WriteLine("Реверс: [" + string.Join(", ", result) + "]");
+                }
+                catch
+                {
+                    Console.WriteLine("Ошибка! Введите числа через пробел.");
+                }
+            }
+
+            else if (choice == "4.9" || choice == "49")
+            {
+                Console.Write("Введите массив через пробел: ");
+                string? lineArr = Console.ReadLine();
+
+                Console.Write("Введите искомое число: ");
+                string? lineX = Console.ReadLine();
+
+                try
+                {
+                    int[] arr = lineArr!.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                                        .Select(int.Parse).ToArray();
+                    int x = int.Parse(lineX!);
+
+                    int[] result = TaskSolver.findAll(arr, x);
+
+                    Console.WriteLine("Индексы: [" + string.Join(", ", result) + "]");
+                }
+                catch
+                {
+                    Console.WriteLine("Ошибка ввода!");
+                }
+            }
 
             else if (choice == "0")
             {

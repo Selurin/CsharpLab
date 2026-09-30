@@ -133,7 +133,7 @@ public class TaskSolver
         return s;
     }
 
-    public static String pow(int x)
+    public static String chet(int x)
     {
         string s = "";
         for (int i = 0; i <= x; i+=2)
@@ -214,5 +214,61 @@ public class TaskSolver
         }
 
         return max;
+    }
+
+    public static int[] add(int[] arr, int[] ins, int pos)
+    {
+        // Новый массив = длина arr + длина ins
+        int[] result = new int[arr.Length + ins.Length];
+
+        int index = 0; // текущая позиция в result
+
+        // Копируем начало arr (от 0 до pos-1)
+        for (int i = 0; i < pos; i++)
+        {
+            result[index] = arr[i];
+            index++;
+        }
+
+        // Вставляем весь массив ins
+        for (int i = 0; i < ins.Length; i++)
+        {
+            result[index] = ins[i];
+            index++;
+        }
+
+        // Копируем хвост arr (от pos до конца)
+        for (int i = pos; i < arr.Length; i++)
+        {
+            result[index] = arr[i];
+            index++;
+        }
+
+        return result;
+    }
+
+    public static int[] reverseBack(int[] arr)
+    {
+        int[] result = new int[arr.Length];
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            result[i] = arr[arr.Length - 1 - i];
+        }
+
+        return result;
+    }
+
+    public static int[] findAll(int[] arr, int x)
+    {
+        List<int> indexes = new List<int>(); // временный список для индексов
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == x)
+                indexes.Add(i); // добавляем индекс в список
+        }
+
+        return indexes.ToArray(); // превращаем список в массив
     }
 }
