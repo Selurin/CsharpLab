@@ -143,4 +143,52 @@ public class TaskSolver
         return s;
     }
 
+    public static int numLen(long x)
+    {
+        // Особый случай: 0 состоит из одной цифры
+        if (x == 0)
+            return 1;
+
+        int count = 0;
+
+        while (x != 0)
+        {
+            x = x / 10;   // отрезаем последнюю цифру
+            count++;        
+        }
+
+        return count;
+    }
+
+    public static void square(int x)
+    {
+        for (int i = 0; i < x; i++)        // внешний цикл — строки (высота)
+        {
+            for (int j = 0; j < x; j++)    // внутренний цикл — символы в строке (ширина)
+            {
+                Console.Write("*");         
+            }
+            Console.WriteLine();            
+        }
+    }
+
+    public static void rightTriangle(int x)
+    {
+        for (int i = 1; i <= x; i++)           // перебираем строки от 1 до x
+        {
+            //Выводим пробелы для выравнивания вправо
+            for (int j = 0; j < x - i; j++)
+            {
+                Console.Write(" ");
+            }
+
+            // Выводим звёздочки (их количество равно номеру строки)
+            for (int k = 0; k < i; k++)
+            {
+                Console.Write("*");
+            }
+
+            Console.WriteLine();               // переход на новую строку
+        }
+    }
 }

@@ -19,6 +19,10 @@ class Program
             Console.WriteLine("2.9 - Вывод дней недели");
             Console.WriteLine("3.1 - Числа подряд");
             Console.WriteLine("3.3 - Четные числа");
+            Console.WriteLine("3.5 - Длина числа");
+            Console.WriteLine("3.7 - Квадрат");
+            Console.WriteLine("3.9 - Правый треугольник");
+            //Console.WriteLine("");
             //Console.WriteLine("");
             //Console.WriteLine("");
             Console.WriteLine("0 - Выход");
@@ -235,6 +239,54 @@ class Program
                 {
                     string result = TaskSolver.pow(parseUserWrite);
                     Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "3.5" || choice == "35")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    int result = TaskSolver.numLen(parseUserWrite);
+                    Console.WriteLine($"Результат: {result}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "3.7" || choice == "37")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    Console.WriteLine("Результат:");
+                    TaskSolver.square(parseUserWrite);
+                }
+
+                else
+                {
+                    Console.WriteLine("Неверное значение!");
+                }
+            }
+
+            else if (choice == "3.9" || choice == "39")
+            {
+                Console.Write("Введите x: ");
+                string? userWrite = Console.ReadLine();
+                if (int.TryParse(userWrite, out int parseUserWrite))
+                {
+                    Console.WriteLine("Результат:");
+                    TaskSolver.rightTriangle(parseUserWrite);
                 }
 
                 else
