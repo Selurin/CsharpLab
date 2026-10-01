@@ -92,10 +92,14 @@ public class TaskSolver
         int max = x;
 
         if (y > max)
+        {
             max = y;
+        }
 
         if (z > max)
+        {
             max = z;
+        }
 
         return max;
     }
@@ -105,7 +109,9 @@ public class TaskSolver
         int sum = x + y;
 
         if (sum >= 10 && sum <= 19)
+        {
             return 20;
+        }
 
         return sum;
     }
@@ -148,7 +154,9 @@ public class TaskSolver
     public int numLen(long x)
     {
         if (x == 0)
+        {
             return 1;
+        }
 
         int count = 0;
 
