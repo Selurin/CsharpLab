@@ -187,7 +187,6 @@ class Program
         } while (choice != "0");
     }
 
-    // Вспомогательные методы
 
     private static void PrintMenu()
     {
@@ -252,7 +251,6 @@ class Program
 
         try
         {
-            // RemoveEmptyEntries безопасно обрабатывает случайные двойные пробелы
             array = line.Split(' ', StringSplitOptions.RemoveEmptyEntries)
                         .Select(int.Parse)
                         .ToArray();

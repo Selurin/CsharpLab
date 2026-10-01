@@ -4,18 +4,14 @@ public class TaskSolver
 {
     public static double fraction(double x)
     {
-        // Считаем обычное "грязное" значение по типу 3,999999 или 0,1203000003
         double dirtyResult = x - (int)x;
         string resultStr = x.ToString();
 
-        //Сначала предполагаем, что знаков нет
         int precision = 0;
 
-        // Разрезаем строку по запятой на две части: [целая часть, дробная часть]
         string[] parts = resultStr.Split(',');
         if (parts.Length > 1)
         {
-            //Если частей больше одной (значит была запятая), берем длину хвоста
             precision = parts[1].Length;
         }
 
@@ -24,7 +20,6 @@ public class TaskSolver
             precision = 15;
         }
 
-        // Округляем по кол-ву длины хвоста изначального числа и приводим к модулю (остаток всегда положительный)
         double cleanResult = Math.Abs(Math.Round(dirtyResult, precision));
         return cleanResult;
     }
@@ -94,7 +89,6 @@ public class TaskSolver
     public static int max3(int x, int y, int z)
     {
 
-        // Предполагаем, что x — максимум
         int max = x;
 
         if (y > max)
@@ -153,7 +147,6 @@ public class TaskSolver
 
     public static int numLen(long x)
     {
-        // Особый случай: 0 состоит из одной цифры
         if (x == 0)
             return 1;
 
@@ -161,7 +154,6 @@ public class TaskSolver
 
         while (x != 0)
         {
-            // Отрезаем последнюю цифру
             x = x / 10;
             count++;
         }
@@ -171,11 +163,9 @@ public class TaskSolver
 
     public static void square(int x)
     {
-        // Внешний цикл — строки (высота)
         for (int i = 0; i < x; i++)
         {
 
-            // Внутренний цикл — символы в строке (ширина)
             for (int j = 0; j < x; j++)
             {
                 Console.Write("*");
@@ -186,21 +176,17 @@ public class TaskSolver
 
     public static void rightTriangle(int x)
     {
-        // Перебираем строки от 1 до x
         for (int i = 1; i <= x; i++)
         {
-            //Выводим пробелы для выравнивания вправо
             for (int j = 0; j < x - i; j++)
             {
                 Console.Write(" ");
             }
 
-            // Выводим звёздочки (их количество равно номеру строки)
             for (int k = 0; k < i; k++)
             {
                 Console.Write("*");
             }
-            // Переход на новую строку
             Console.WriteLine();
         }
     }
@@ -209,18 +195,15 @@ public class TaskSolver
     {
         for (int i = 0; i < arr.Length; i++)
         {
-            // Нашли первое вхождение — сразу возвращаем индекс
             if (arr[i] == x)
                 return i;
         }
 
-        // Прошли весь массив, ничего не нашли
         return -1;
     }
 
     public static int maxAbs(int[] arr)
     {
-        // Берём первый элемент как текущий максимум
         int max = arr[0];
 
         for (int i = 1; i < arr.Length; i++)
@@ -234,26 +217,22 @@ public class TaskSolver
 
     public static int[] add(int[] arr, int[] ins, int pos)
     {
-        // Новый массив = длина arr + длина ins
         int[] result = new int[arr.Length + ins.Length];
 
-        int index = 0; // текущая позиция в result
+        int index = 0; 
 
-        // Копируем начало arr (от 0 до pos-1)
         for (int i = 0; i < pos; i++)
         {
             result[index] = arr[i];
             index++;
         }
 
-        // Вставляем весь массив ins
         for (int i = 0; i < ins.Length; i++)
         {
             result[index] = ins[i];
             index++;
         }
 
-        // Копируем хвост arr (от pos до конца)
         for (int i = pos; i < arr.Length; i++)
         {
             result[index] = arr[i];
@@ -277,16 +256,13 @@ public class TaskSolver
 
     public static int[] findAll(int[] arr, int x)
     {
-        // Временный список для индексов
         List<int> indexes = new List<int>();
 
         for (int i = 0; i < arr.Length; i++)
         {
-            // Добавляем индекс в список
             if (arr[i] == x)
                 indexes.Add(i);
         }
-        // Превращаем список в массив
         return indexes.ToArray();
     }
 }
