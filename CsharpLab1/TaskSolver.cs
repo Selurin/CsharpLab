@@ -2,7 +2,7 @@
 
 public class TaskSolver
 {
-    public static double fraction(double x)
+    public double fraction(double x)
     {
         double dirtyResult = x - (int)x;
         string resultStr = x.ToString();
@@ -24,12 +24,12 @@ public class TaskSolver
         return cleanResult;
     }
 
-    public static int charToNum(char x)
+    public int charToNum(char x)
     {
         return x - '0';
     }
 
-    public static bool is2Digits(int x)
+    public bool is2Digits(int x)
     {
         string strX = x.ToString();
         if (strX.Length == 2)
@@ -42,7 +42,7 @@ public class TaskSolver
         }
     }
 
-    public static bool isInRange(int a, int b, int num)
+    public bool isInRange(int a, int b, int num)
     {
         if ((a <= num && num <= b) || (b <= num && num <= a))
         {
@@ -56,7 +56,7 @@ public class TaskSolver
 
     }
 
-    public static bool isEqual(int a, int b, int c)
+    public bool isEqual(int a, int b, int c)
     {
         if (a == b && b == c && a == c)
         {
@@ -69,12 +69,12 @@ public class TaskSolver
         }
     }
 
-    public static int abs(int x)
+    public int abs(int x)
     {
         return Math.Abs(x);
     }
 
-    public static bool is35(int x)
+    public bool is35(int x)
     {
         if ((x % 3 == 0 || x % 5 == 0) && x % 15 != 0)
         {
@@ -86,7 +86,7 @@ public class TaskSolver
         }
     }
 
-    public static int max3(int x, int y, int z)
+    public int max3(int x, int y, int z)
     {
 
         int max = x;
@@ -100,7 +100,7 @@ public class TaskSolver
         return max;
     }
 
-    public static int sum2(int x, int y)
+    public int sum2(int x, int y)
     {
         int sum = x + y;
 
@@ -110,7 +110,7 @@ public class TaskSolver
         return sum;
     }
 
-    public static string day(int x)
+    public string day(int x)
     {
         switch (x)
         {
@@ -125,7 +125,7 @@ public class TaskSolver
         }
     }
 
-    public static String listNums(int x)
+    public String listNums(int x)
     {
         string s = "";
         for (int i = 0; i <= x; i++)
@@ -135,7 +135,7 @@ public class TaskSolver
         return s;
     }
 
-    public static String chet(int x)
+    public String chet(int x)
     {
         string s = "";
         for (int i = 0; i <= x; i += 2)
@@ -145,7 +145,7 @@ public class TaskSolver
         return s;
     }
 
-    public static int numLen(long x)
+    public int numLen(long x)
     {
         if (x == 0)
             return 1;
@@ -161,7 +161,7 @@ public class TaskSolver
         return count;
     }
 
-    public static void square(int x)
+    public void square(int x)
     {
         for (int i = 0; i < x; i++)
         {
@@ -174,7 +174,7 @@ public class TaskSolver
         }
     }
 
-    public static void rightTriangle(int x)
+    public void rightTriangle(int x)
     {
         for (int i = 1; i <= x; i++)
         {
@@ -191,7 +191,7 @@ public class TaskSolver
         }
     }
 
-    public static int findFirst(int[] arr, int x)
+    public int findFirst(int[] arr, int x)
     {
         for (int i = 0; i < arr.Length; i++)
         {
@@ -202,7 +202,7 @@ public class TaskSolver
         return -1;
     }
 
-    public static int maxAbs(int[] arr)
+    public int maxAbs(int[] arr)
     {
         int max = arr[0];
 
@@ -215,11 +215,11 @@ public class TaskSolver
         return max;
     }
 
-    public static int[] add(int[] arr, int[] ins, int pos)
+    public int[] add(int[] arr, int[] ins, int pos)
     {
         int[] result = new int[arr.Length + ins.Length];
 
-        int index = 0; 
+        int index = 0;
 
         for (int i = 0; i < pos; i++)
         {
@@ -242,7 +242,7 @@ public class TaskSolver
         return result;
     }
 
-    public static int[] reverseBack(int[] arr)
+    public int[] reverseBack(int[] arr)
     {
         int[] result = new int[arr.Length];
 
@@ -254,7 +254,7 @@ public class TaskSolver
         return result;
     }
 
-    public static int[] findAll(int[] arr, int x)
+    public int[] findAll(int[] arr, int x)
     {
         List<int> indexes = new List<int>();
 

@@ -20,7 +20,9 @@ class Program
                 case "1.1":
                 case "11":
                     if (TryReadDouble("Введите x: ", out double x11))
-                        Console.WriteLine($"Результат: {TaskSolver.fraction(x11)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().fraction(x11)}");
+                    }
                     break;
 
                 case "1.3":
@@ -28,15 +30,21 @@ class Program
                     Console.Write("Введите один символ: ");
                     string? input13 = Console.ReadLine();
                     if (!string.IsNullOrEmpty(input13))
-                        Console.WriteLine($"Результат: {TaskSolver.charToNum(input13[0])}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().charToNum(input13[0])}");
+                    }
                     else
+                    {
                         Console.WriteLine("Неверное значение! Ввод не может быть пустым.");
+                    }
                     break;
 
                 case "1.5":
                 case "15":
                     if (TryReadInt("Введите x: ", out int x15))
-                        Console.WriteLine($"Результат: {TaskSolver.is2Digits(x15)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().is2Digits(x15)}");
+                    }
                     break;
 
                 case "1.7":
@@ -45,7 +53,7 @@ class Program
                         TryReadInt("Введите b: ", out int b17) &&
                         TryReadInt("Введите num: ", out int num17))
                     {
-                        Console.WriteLine($"Результат: {TaskSolver.isInRange(a17, b17, num17)}");
+                        Console.WriteLine($"Результат: {new TaskSolver().isInRange(a17, b17, num17)}");
                     }
                     break;
 
@@ -55,20 +63,24 @@ class Program
                         TryReadInt("Введите b: ", out int b19) &&
                         TryReadInt("Введите c: ", out int c19))
                     {
-                        Console.WriteLine($"Результат: {TaskSolver.isEqual(a19, b19, c19)}");
+                        Console.WriteLine($"Результат: {new TaskSolver().isEqual(a19, b19, c19)}");
                     }
                     break;
 
                 case "2.1":
                 case "21":
                     if (TryReadInt("Введите x: ", out int x21))
-                        Console.WriteLine($"Результат: {TaskSolver.abs(x21)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().abs(x21)}");
+                    }
                     break;
 
                 case "2.3":
                 case "23":
                     if (TryReadInt("Введите x: ", out int x23))
-                        Console.WriteLine($"Результат: {TaskSolver.is35(x23)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().is35(x23)}");
+                    }
                     break;
 
                 case "2.5":
@@ -77,7 +89,7 @@ class Program
                         TryReadInt("Введите y: ", out int y25) &&
                         TryReadInt("Введите z: ", out int z25))
                     {
-                        Console.WriteLine($"Результат: {TaskSolver.max3(x25, y25, z25)}");
+                        Console.WriteLine($"Результат: {new TaskSolver().max3(x25, y25, z25)}");
                     }
                     break;
 
@@ -86,32 +98,40 @@ class Program
                     if (TryReadInt("Введите x: ", out int x27) &&
                         TryReadInt("Введите y: ", out int y27))
                     {
-                        Console.WriteLine($"Результат: {TaskSolver.sum2(x27, y27)}");
+                        Console.WriteLine($"Результат: {new TaskSolver().sum2(x27, y27)}");
                     }
                     break;
 
                 case "2.9":
                 case "29":
                     if (TryReadInt("Введите номер дня (1-7): ", out int x29))
-                        Console.WriteLine($"Результат: {TaskSolver.day(x29)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().day(x29)}");
+                    }
                     break;
 
                 case "3.1":
                 case "31":
                     if (TryReadInt("Введите x: ", out int x31))
-                        Console.WriteLine($"Результат: {TaskSolver.listNums(x31)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().listNums(x31)}");
+                    }
                     break;
 
                 case "3.3":
                 case "33":
                     if (TryReadInt("Введите x: ", out int x33))
-                        Console.WriteLine($"Результат: {TaskSolver.chet(x33)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().chet(x33)}");
+                    }
                     break;
 
                 case "3.5":
                 case "35":
                     if (TryReadInt("Введите x: ", out int x35))
-                        Console.WriteLine($"Результат: {TaskSolver.numLen(x35)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().numLen(x35)}");
+                    }
                     break;
 
                 case "3.7":
@@ -119,7 +139,7 @@ class Program
                     if (TryReadInt("Введите сторону квадрата: ", out int x37))
                     {
                         Console.WriteLine("Результат:");
-                        TaskSolver.square(x37);
+                        new TaskSolver().square(x37);
                     }
                     break;
 
@@ -128,7 +148,7 @@ class Program
                     if (TryReadInt("Введите высоту треугольника: ", out int x39))
                     {
                         Console.WriteLine("Результат:");
-                        TaskSolver.rightTriangle(x39);
+                        new TaskSolver().rightTriangle(x39);
                     }
                     break;
 
@@ -137,14 +157,16 @@ class Program
                     if (TryReadIntArray("Введите массив чисел через пробел: ", out int[] arr41) &&
                         TryReadInt("Введите число для поиска: ", out int search41))
                     {
-                        Console.WriteLine($"Индекс первого вхождения: {TaskSolver.findFirst(arr41, search41)}");
+                        Console.WriteLine($"Индекс первого вхождения: {new TaskSolver().findFirst(arr41, search41)}");
                     }
                     break;
 
                 case "4.3":
                 case "43":
                     if (TryReadIntArray("Введите числа через пробел: ", out int[] arr43))
-                        Console.WriteLine($"Результат: {TaskSolver.maxAbs(arr43)}");
+                    {
+                        Console.WriteLine($"Результат: {new TaskSolver().maxAbs(arr43)}");
+                    }
                     break;
 
                 case "4.5":
@@ -153,7 +175,7 @@ class Program
                         TryReadIntArray("Введите вставляемый массив через пробел: ", out int[] ins45) &&
                         TryReadInt("Введите позицию для вставки: ", out int pos45))
                     {
-                        int[] result = TaskSolver.add(arr45, ins45, pos45);
+                        int[] result = new TaskSolver().add(arr45, ins45, pos45);
                         Console.WriteLine("Результат: [" + string.Join(", ", result) + "]");
                     }
                     break;
@@ -162,7 +184,7 @@ class Program
                 case "47":
                     if (TryReadIntArray("Введите массив через пробел: ", out int[] arr47))
                     {
-                        int[] result = TaskSolver.reverseBack(arr47);
+                        int[] result = new TaskSolver().reverseBack(arr47);
                         Console.WriteLine("Реверс: [" + string.Join(", ", result) + "]");
                     }
                     break;
@@ -172,7 +194,7 @@ class Program
                     if (TryReadIntArray("Введите массив через пробел: ", out int[] arr49) &&
                         TryReadInt("Введите искомое число: ", out int x49))
                     {
-                        int[] result = TaskSolver.findAll(arr49, x49);
+                        int[] result = new TaskSolver().findAll(arr49, x49);
                         Console.WriteLine("Индексы: [" + string.Join(", ", result) + "]");
                     }
                     break;
