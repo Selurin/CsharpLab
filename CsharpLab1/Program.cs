@@ -1,438 +1,269 @@
 ﻿using System;
+
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        string? choice = "";
-        while (choice != "0")
+        string choice;
+        do
         {
-            Console.WriteLine("\nКакую задачу решить?");
-            Console.WriteLine("1.1 - Дробная часть числа");
-            Console.WriteLine("1.3 - Превратить букву в число");
-            Console.WriteLine("1.5 - Двузначное ли число");
-            Console.WriteLine("1.7 - Входит ли число в диапазон");
-            Console.WriteLine("1.9 - Равны ли все 3 числа");
-            Console.WriteLine("2.1 - Модуль числа");
-            Console.WriteLine("2.3 - Делится ли на 3, на 5 или на 15 (при делении на 15 = false)");
-            Console.WriteLine("2.5 - Тройной максимум");
-            Console.WriteLine("2.7 - Двойная сумма");
-            Console.WriteLine("2.9 - Вывод дней недели");
-            Console.WriteLine("3.1 - Числа подряд");
-            Console.WriteLine("3.3 - Четные числа");
-            Console.WriteLine("3.5 - Длина числа");
-            Console.WriteLine("3.7 - Квадрат");
-            Console.WriteLine("3.9 - Правый треугольник");
-            Console.WriteLine("4.1 - Поиск первого значения");
-            Console.WriteLine("4.3 - Поиск максимального");
-            Console.WriteLine("4.5 - Добавление массива в массив");
-            Console.WriteLine("4.7 - Возвратный реверс");
-            Console.WriteLine("4.9 - Все вхождения");
-            Console.WriteLine("0 - Выход");
-            Console.Write("Введите номер задачи через точку или без: ");
+            PrintMenu();
+            Console.Write("Введите номер задачи (например, 1.1 или 11) или 0 для выхода: ");
+            choice = Console.ReadLine()?.Trim() ?? "";
 
-            choice = Console.ReadLine();
-
-            if (choice == "1.1" || choice == "11")
+            switch (choice)
             {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (double.TryParse(userWrite, out double parseUserWrite))
-                {
-                    double result = TaskSolver.fraction(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
+                case "0":
+                    Console.WriteLine("До свидания!");
+                    break;
 
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
+                case "1.1":
+                case "11":
+                    if (TryReadDouble("Введите x: ", out double x11))
+                        Console.WriteLine($"Результат: {TaskSolver.fraction(x11)}");
+                    break;
 
-            else if (choice == "1.3" || choice == "13")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (char.TryParse(userWrite, out char parseUserWrite))
-                {
-                    int result = TaskSolver.charToNum(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
+                case "1.3":
+                case "13":
+                    Console.Write("Введите один символ: ");
+                    string? input13 = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(input13))
+                        Console.WriteLine($"Результат: {TaskSolver.charToNum(input13[0])}");
+                    else
+                        Console.WriteLine("Неверное значение! Ввод не может быть пустым.");
+                    break;
 
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
+                case "1.5":
+                case "15":
+                    if (TryReadInt("Введите x: ", out int x15))
+                        Console.WriteLine($"Результат: {TaskSolver.is2Digits(x15)}");
+                    break;
 
-            else if (choice == "1.5" || choice == "15")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    bool result = TaskSolver.is2Digits(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "1.7" || choice == "17")
-            {
-                Console.Write("Введите a: ");
-                string? a = Console.ReadLine();
-
-                Console.Write("Введите b: ");
-                string? b = Console.ReadLine();
-
-                Console.Write("Введите num: ");
-                string? num = Console.ReadLine();
-
-                if (int.TryParse(a, out int parseA) && int.TryParse(b, out int parseB) && int.TryParse(num, out int parseNum))
-                {
-                    bool result = TaskSolver.isInRange(parseA, parseB, parseNum);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "1.9" || choice == "19")
-            {
-                Console.Write("Введите a: ");
-                string? a = Console.ReadLine();
-
-                Console.Write("Введите b: ");
-                string? b = Console.ReadLine();
-
-                Console.Write("Введите c: ");
-                string? c = Console.ReadLine();
-
-                if (int.TryParse(a, out int parseA) && int.TryParse(b, out int parseB) && int.TryParse(c, out int parseC))
-                {
-                    bool result = TaskSolver.isInRange(parseA, parseB, parseC);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "2.1" || choice == "21")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    int result = TaskSolver.abs(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "2.3" || choice == "23")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    bool result = TaskSolver.is35(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "2.5" || choice == "25")
-            {
-                Console.Write("Введите x: ");
-                string? x = Console.ReadLine();
-
-                Console.Write("Введите y: ");
-                string? y = Console.ReadLine();
-
-                Console.Write("Введите z: ");
-                string? z = Console.ReadLine();
-
-                if (int.TryParse(x, out int parseX) && int.TryParse(y, out int parseY) && int.TryParse(z, out int parseZ))
-                {
-                    int result = TaskSolver.max3(parseX, parseY, parseZ);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "2.7" || choice == "27")
-            {
-                Console.Write("Введите x: ");
-                string? x = Console.ReadLine();
-
-                Console.Write("Введите y: ");
-                string? y = Console.ReadLine();
-
-                if (int.TryParse(x, out int parseX) && int.TryParse(y, out int parseY))
-                {
-                    int result = TaskSolver.sum2(parseX, parseY);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "2.9" || choice == "29")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    string result = TaskSolver.day(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "3.1" || choice == "31")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    string result = TaskSolver.listNums(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "3.3" || choice == "33")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    string result = TaskSolver.chet(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "3.5" || choice == "35")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    int result = TaskSolver.numLen(parseUserWrite);
-                    Console.WriteLine($"Результат: {result}");
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "3.7" || choice == "37")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    Console.WriteLine("Результат:");
-                    TaskSolver.square(parseUserWrite);
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "3.9" || choice == "39")
-            {
-                Console.Write("Введите x: ");
-                string? userWrite = Console.ReadLine();
-                if (int.TryParse(userWrite, out int parseUserWrite))
-                {
-                    Console.WriteLine("Результат:");
-                    TaskSolver.rightTriangle(parseUserWrite);
-                }
-
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
-            }
-
-            else if (choice == "4.1" || choice == "41")
-            {
-                Console.Write("Введите массив чисел через пробел: ");
-                string? line = Console.ReadLine();
-
-                Console.Write("Введите число для поиска: ");
-                string? numStr = Console.ReadLine();
-
-                // проверяем, что второе число точно введено
-                if (line != null && numStr != null && int.TryParse(numStr, out int searchValue))
-                {
-                    try
+                case "1.7":
+                case "17":
+                    if (TryReadInt("Введите a: ", out int a17) &&
+                        TryReadInt("Введите b: ", out int b17) &&
+                        TryReadInt("Введите num: ", out int num17))
                     {
-                        // .Split(' ') разбивает строку по пробелам
-                        // Select(int.Parse) превращает каждую часть в число
-                        // .ToArray() собирает всё в массив
-                        int[] arr = line.Split(' ').Select(int.Parse).ToArray();
-
-                        int result = TaskSolver.findFirst(arr, searchValue);
-
-                        Console.WriteLine($"Индекс первого вхождения: {result}");
+                        Console.WriteLine($"Результат: {TaskSolver.isInRange(a17, b17, num17)}");
                     }
-                    catch
+                    break;
+
+                case "1.9":
+                case "19":
+                    // Исправлен логический баг: раньше здесь ошибочно вызывался isInRange
+                    if (TryReadInt("Введите a: ", out int a19) &&
+                        TryReadInt("Введите b: ", out int b19) &&
+                        TryReadInt("Введите c: ", out int c19))
                     {
-                        Console.WriteLine("Ошибка! Вводите только целые числа через пробел.");
+                        Console.WriteLine($"Результат: {TaskSolver.isEqual(a19, b19, c19)}");
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Неверное значение!");
-                }
+                    break;
+
+                case "2.1":
+                case "21":
+                    if (TryReadInt("Введите x: ", out int x21))
+                        Console.WriteLine($"Результат: {TaskSolver.abs(x21)}");
+                    break;
+
+                case "2.3":
+                case "23":
+                    if (TryReadInt("Введите x: ", out int x23))
+                        Console.WriteLine($"Результат: {TaskSolver.is35(x23)}");
+                    break;
+
+                case "2.5":
+                case "25":
+                    if (TryReadInt("Введите x: ", out int x25) &&
+                        TryReadInt("Введите y: ", out int y25) &&
+                        TryReadInt("Введите z: ", out int z25))
+                    {
+                        Console.WriteLine($"Результат: {TaskSolver.max3(x25, y25, z25)}");
+                    }
+                    break;
+
+                case "2.7":
+                case "27":
+                    if (TryReadInt("Введите x: ", out int x27) &&
+                        TryReadInt("Введите y: ", out int y27))
+                    {
+                        Console.WriteLine($"Результат: {TaskSolver.sum2(x27, y27)}");
+                    }
+                    break;
+
+                case "2.9":
+                case "29":
+                    if (TryReadInt("Введите номер дня (1-7): ", out int x29))
+                        Console.WriteLine($"Результат: {TaskSolver.day(x29)}");
+                    break;
+
+                case "3.1":
+                case "31":
+                    if (TryReadInt("Введите x: ", out int x31))
+                        Console.WriteLine($"Результат: {TaskSolver.listNums(x31)}");
+                    break;
+
+                case "3.3":
+                case "33":
+                    if (TryReadInt("Введите x: ", out int x33))
+                        Console.WriteLine($"Результат: {TaskSolver.chet(x33)}");
+                    break;
+
+                case "3.5":
+                case "35":
+                    if (TryReadInt("Введите x: ", out int x35))
+                        Console.WriteLine($"Результат: {TaskSolver.numLen(x35)}");
+                    break;
+
+                case "3.7":
+                case "37":
+                    if (TryReadInt("Введите сторону квадрата: ", out int x37))
+                    {
+                        Console.WriteLine("Результат:");
+                        TaskSolver.square(x37);
+                    }
+                    break;
+
+                case "3.9":
+                case "39":
+                    if (TryReadInt("Введите высоту треугольника: ", out int x39))
+                    {
+                        Console.WriteLine("Результат:");
+                        TaskSolver.rightTriangle(x39);
+                    }
+                    break;
+
+                case "4.1":
+                case "41":
+                    if (TryReadIntArray("Введите массив чисел через пробел: ", out int[] arr41) &&
+                        TryReadInt("Введите число для поиска: ", out int search41))
+                    {
+                        Console.WriteLine($"Индекс первого вхождения: {TaskSolver.findFirst(arr41, search41)}");
+                    }
+                    break;
+
+                case "4.3":
+                case "43":
+                    if (TryReadIntArray("Введите числа через пробел: ", out int[] arr43))
+                        Console.WriteLine($"Результат: {TaskSolver.maxAbs(arr43)}");
+                    break;
+
+                case "4.5":
+                case "45":
+                    if (TryReadIntArray("Введите основной массив через пробел: ", out int[] arr45) &&
+                        TryReadIntArray("Введите вставляемый массив через пробел: ", out int[] ins45) &&
+                        TryReadInt("Введите позицию для вставки: ", out int pos45))
+                    {
+                        int[] result = TaskSolver.add(arr45, ins45, pos45);
+                        Console.WriteLine("Результат: [" + string.Join(", ", result) + "]");
+                    }
+                    break;
+
+                case "4.7":
+                case "47":
+                    if (TryReadIntArray("Введите массив через пробел: ", out int[] arr47))
+                    {
+                        int[] result = TaskSolver.reverseBack(arr47);
+                        Console.WriteLine("Реверс: [" + string.Join(", ", result) + "]");
+                    }
+                    break;
+
+                case "4.9":
+                case "49":
+                    if (TryReadIntArray("Введите массив через пробел: ", out int[] arr49) &&
+                        TryReadInt("Введите искомое число: ", out int x49))
+                    {
+                        int[] result = TaskSolver.findAll(arr49, x49);
+                        Console.WriteLine("Индексы: [" + string.Join(", ", result) + "]");
+                    }
+                    break;
+
+                default:
+                    if (choice != "0")
+                    {
+                        Console.WriteLine("Такой задачи пока нет. Попробуйте еще раз.");
+                    }
+                    break;
             }
+        } while (choice != "0");
+    }
 
-            else if (choice == "4.3" || choice == "43")
-            {
-                Console.Write("Введите числа через пробел: ");
-                string? line = Console.ReadLine();
+    // Вспомогательные методы
 
-                try
-                {
-                    int[] arr = line!.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                                     .Select(int.Parse)
-                                     .ToArray();
+    private static void PrintMenu()
+    {
+        Console.WriteLine("\n--- Меню задач ---");
+        Console.WriteLine("1.1 - Дробная часть числа");
+        Console.WriteLine("1.3 - Превратить символ цифры в число");
+        Console.WriteLine("1.5 - Двузначное ли число");
+        Console.WriteLine("1.7 - Входит ли число в диапазон");
+        Console.WriteLine("1.9 - Равны ли все 3 числа");
+        Console.WriteLine("2.1 - Модуль числа");
+        Console.WriteLine("2.3 - Делится на 3 или 5 (но не на 15)");
+        Console.WriteLine("2.5 - Тройной максимум");
+        Console.WriteLine("2.7 - Двойная сумма (10-19 -> 20)");
+        Console.WriteLine("2.9 - Вывод дня недели");
+        Console.WriteLine("3.1 - Числа от 0 до N");
+        Console.WriteLine("3.3 - Четные числа от 0 до N");
+        Console.WriteLine("3.5 - Количество цифр в числе");
+        Console.WriteLine("3.7 - Квадрат из '*'");
+        Console.WriteLine("3.9 - Правый треугольник из '*'");
+        Console.WriteLine("4.1 - Поиск первого вхождения");
+        Console.WriteLine("4.3 - Элемент с макс. абсолютным значением");
+        Console.WriteLine("4.5 - Вставка одного массива в другой");
+        Console.WriteLine("4.7 - Реверс массива");
+        Console.WriteLine("4.9 - Все вхождения элемента");
+        Console.WriteLine("0 - Выход");
+        Console.WriteLine("------------------");
+    }
 
-                    int result = TaskSolver.maxAbs(arr);
-                    Console.WriteLine($"Результат: {result}");
-                }
-                catch
-                {
-                    Console.WriteLine("Ошибка! Введите корректные числа через пробел.");
-                }
-            }
+    private static bool TryReadInt(string prompt, out int value)
+    {
+        Console.Write(prompt);
+        if (int.TryParse(Console.ReadLine(), out value))
+        {
+            return true;
+        }
+        Console.WriteLine("Неверное значение! Ожидалось целое число.");
+        return false;
+    }
 
-            else if (choice == "4.5" || choice == "45")
-            {
-                Console.Write("Введите основной массив через пробел: ");
-                string? lineArr = Console.ReadLine();
+    private static bool TryReadDouble(string prompt, out double value)
+    {
+        Console.Write(prompt);
+        if (double.TryParse(Console.ReadLine(), out value))
+        {
+            return true;
+        }
+        Console.WriteLine("Неверное значение! Ожидалось дробное или целое число.");
+        return false;
+    }
 
-                Console.Write("Вставляемый массив через пробел: ");
-                string? lineIns = Console.ReadLine();
+    private static bool TryReadIntArray(string prompt, out int[] array)
+    {
+        Console.Write(prompt);
+        string? line = Console.ReadLine();
 
-                Console.Write("Позиция для вставки (число): ");
-                string? linePos = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(line))
+        {
+            array = Array.Empty<int>();
+            Console.WriteLine("Неверное значение! Ввод не может быть пустым.");
+            return false;
+        }
 
-                try
-                {
-                    // Превращаем строки в массивы и число
-                    int[] arr = lineArr!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-                    int[] ins = lineIns!.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-                    int pos = int.Parse(linePos!);
-
-                    // Вызываем метод
-                    int[] result = TaskSolver.add(arr, ins, pos);
-
-                    // Выводим результат красиво
-                    Console.WriteLine("Результат: [" + string.Join(", ", result) + "]");
-                }
-                catch
-                {
-                    Console.WriteLine("Ошибка ввода! Проверьте числа и позицию.");
-                }
-            }
-
-            else if (choice == "4.7" || choice == "47")
-            {
-                Console.Write("Введите массив через пробел: ");
-                string? line = Console.ReadLine();
-
-                try
-                {
-                    int[] arr = line!.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                                     .Select(int.Parse).ToArray();
-
-                    int[] result = TaskSolver.reverseBack(arr);
-
-                    Console.WriteLine("Реверс: [" + string.Join(", ", result) + "]");
-                }
-                catch
-                {
-                    Console.WriteLine("Ошибка! Введите числа через пробел.");
-                }
-            }
-
-            else if (choice == "4.9" || choice == "49")
-            {
-                Console.Write("Введите массив через пробел: ");
-                string? lineArr = Console.ReadLine();
-
-                Console.Write("Введите искомое число: ");
-                string? lineX = Console.ReadLine();
-
-                try
-                {
-                    int[] arr = lineArr!.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                                        .Select(int.Parse).ToArray();
-                    int x = int.Parse(lineX!);
-
-                    int[] result = TaskSolver.findAll(arr, x);
-
-                    Console.WriteLine("Индексы: [" + string.Join(", ", result) + "]");
-                }
-                catch
-                {
-                    Console.WriteLine("Ошибка ввода!");
-                }
-            }
-
-            else if (choice == "0")
-            {
-                Console.WriteLine("До свидания!");
-            }
-            else
-            {
-                Console.WriteLine("Такой задачи пока нет");
-            }
-
+        try
+        {
+            // RemoveEmptyEntries безопасно обрабатывает случайные двойные пробелы
+            array = line.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(int.Parse)
+                        .ToArray();
+            return true;
+        }
+        catch (FormatException)
+        {
+            array = Array.Empty<int>();
+            Console.WriteLine("Ошибка формата! Вводите только целые числа, разделенные пробелами.");
+            return false;
         }
     }
 }
