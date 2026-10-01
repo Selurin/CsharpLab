@@ -4,24 +4,29 @@ public class TaskSolver
 {
     public static double fraction(double x)
     {
-            double dirtyResult = x - (int)x; //считаем обычное "грязное" значение по типу 3,999999 или 0,1203000003
-            string resultStr = x.ToString();
+        // Считаем обычное "грязное" значение по типу 3,999999 или 0,1203000003
+        double dirtyResult = x - (int)x;
+        string resultStr = x.ToString();
 
-            int precision = 0; //сначала предполагаем, что знаков нет
+        //Сначала предполагаем, что знаков нет
+        int precision = 0;
 
-            string[] parts = resultStr.Split(','); //разрезаем строку по запятой на две части: [целая часть, дробная часть]
+        // Разрезаем строку по запятой на две части: [целая часть, дробная часть]
+        string[] parts = resultStr.Split(',');
         if (parts.Length > 1)
-            {
-                precision = parts[1].Length; //Если частей больше одной(значит была запятая), берем длину хвоста
-            }
+        {
+            //Если частей больше одной (значит была запятая), берем длину хвоста
+            precision = parts[1].Length;
+        }
 
         if (precision > 15)
-            {
-                precision = 15;
-            }
+        {
+            precision = 15;
+        }
 
-            double cleanResult = Math.Abs(Math.Round(dirtyResult, precision)); //округляем по кол-ву длины хвоста изначального числа и приводим к модулю (остаток всегда положительный)
-            return cleanResult; 
+        // Округляем по кол-ву длины хвоста изначального числа и приводим к модулю (остаток всегда положительный)
+        double cleanResult = Math.Abs(Math.Round(dirtyResult, precision));
+        return cleanResult;
     }
 
     public static int charToNum(char x)
@@ -32,7 +37,7 @@ public class TaskSolver
     public static bool is2Digits(int x)
     {
         string strX = x.ToString();
-        if (strX.Length==2)
+        if (strX.Length == 2)
         {
             return true;
         }
@@ -48,8 +53,9 @@ public class TaskSolver
         {
             return true;
         }
-        else 
-            { return false;
+        else
+        {
+            return false;
         }
 
 
@@ -58,12 +64,13 @@ public class TaskSolver
     public static bool isEqual(int a, int b, int c)
     {
         if (a == b && b == c && a == c)
-        {  
-            return true; 
+        {
+            return true;
         }
 
-        else { 
-            return false; 
+        else
+        {
+            return false;
         }
     }
 
@@ -74,7 +81,7 @@ public class TaskSolver
 
     public static bool is35(int x)
     {
-        if ((x%3==0 || x%5==0) && x%15!=0)
+        if ((x % 3 == 0 || x % 5 == 0) && x % 15 != 0)
         {
             return true;
         }
@@ -87,12 +94,13 @@ public class TaskSolver
     public static int max3(int x, int y, int z)
     {
 
-        int max = x;          // предполагаем, что x — максимум
+        // Предполагаем, что x — максимум
+        int max = x;
 
-        if (y > max)          
+        if (y > max)
             max = y;
 
-        if (z > max)          
+        if (z > max)
             max = z;
 
         return max;
@@ -136,7 +144,7 @@ public class TaskSolver
     public static String chet(int x)
     {
         string s = "";
-        for (int i = 0; i <= x; i+=2)
+        for (int i = 0; i <= x; i += 2)
         {
             s = s + i + " ";
         }
@@ -153,8 +161,9 @@ public class TaskSolver
 
         while (x != 0)
         {
-            x = x / 10;   // отрезаем последнюю цифру
-            count++;        
+            // Отрезаем последнюю цифру
+            x = x / 10;
+            count++;
         }
 
         return count;
@@ -162,19 +171,23 @@ public class TaskSolver
 
     public static void square(int x)
     {
-        for (int i = 0; i < x; i++)        // внешний цикл — строки (высота)
+        // Внешний цикл — строки (высота)
+        for (int i = 0; i < x; i++)
         {
-            for (int j = 0; j < x; j++)    // внутренний цикл — символы в строке (ширина)
+
+            // Внутренний цикл — символы в строке (ширина)
+            for (int j = 0; j < x; j++)
             {
-                Console.Write("*");         
+                Console.Write("*");
             }
-            Console.WriteLine();            
+            Console.WriteLine();
         }
     }
 
     public static void rightTriangle(int x)
     {
-        for (int i = 1; i <= x; i++)           // перебираем строки от 1 до x
+        // Перебираем строки от 1 до x
+        for (int i = 1; i <= x; i++)
         {
             //Выводим пробелы для выравнивания вправо
             for (int j = 0; j < x - i; j++)
@@ -187,8 +200,8 @@ public class TaskSolver
             {
                 Console.Write("*");
             }
-
-            Console.WriteLine();               // переход на новую строку
+            // Переход на новую строку
+            Console.WriteLine();
         }
     }
 
@@ -196,16 +209,19 @@ public class TaskSolver
     {
         for (int i = 0; i < arr.Length; i++)
         {
+            // Нашли первое вхождение — сразу возвращаем индекс
             if (arr[i] == x)
-                return i;       // нашли первое вхождение — сразу возвращаем индекс
+                return i;
         }
 
-        return -1;              // прошли весь массив, ничего не нашли
+        // Прошли весь массив, ничего не нашли
+        return -1;
     }
 
     public static int maxAbs(int[] arr)
     {
-        int max = arr[0]; // берём первый элемент как текущий максимум
+        // Берём первый элемент как текущий максимум
+        int max = arr[0];
 
         for (int i = 1; i < arr.Length; i++)
         {
@@ -261,14 +277,16 @@ public class TaskSolver
 
     public static int[] findAll(int[] arr, int x)
     {
-        List<int> indexes = new List<int>(); // временный список для индексов
+        // Временный список для индексов
+        List<int> indexes = new List<int>();
 
         for (int i = 0; i < arr.Length; i++)
         {
+            // Добавляем индекс в список
             if (arr[i] == x)
-                indexes.Add(i); // добавляем индекс в список
+                indexes.Add(i);
         }
-
-        return indexes.ToArray(); // превращаем список в массив
+        // Превращаем список в массив
+        return indexes.ToArray();
     }
 }

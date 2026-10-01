@@ -51,7 +51,6 @@ class Program
 
                 case "1.9":
                 case "19":
-                    // Исправлен логический баг: раньше здесь ошибочно вызывался isInRange
                     if (TryReadInt("Введите a: ", out int a19) &&
                         TryReadInt("Введите b: ", out int b19) &&
                         TryReadInt("Введите c: ", out int c19))
